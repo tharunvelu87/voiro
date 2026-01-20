@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIM & DID Guides - Technical Setup & Integration | Voiro</title>
+    <meta name="description" content="Comprehensive technical guides for SIM card integration, DID number setup, troubleshooting, and best practices for IT administrators and VoIP engineers.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://voiro.online/sim-did-guides.html">
+    <meta property="og:title" content="SIM & DID Guides - Technical Setup & Integration | Voiro">
+    <meta property="og:description" content="Comprehensive technical guides for SIM card integration, DID number setup, troubleshooting, and best practices for IT administrators and VoIP engineers.">
+    <meta property="og:image" content="https://voiro.online/assets/img/guides-og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://voiro.online/sim-did-guides.html">
+    <meta property="twitter:title" content="SIM & DID Guides - Technical Setup & Integration | Voiro">
+    <meta property="twitter:description" content="Comprehensive technical guides for SIM card integration, DID number setup, troubleshooting, and best practices for IT administrators and VoIP engineers.">
+    <meta property="twitter:image" content="https://voiro.online/assets/img/guides-og-image.jpg">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "SIM & DID Technical Guides",
+        "description": "Technical documentation and guides for SIM card integration and DID number configuration",
+        "url": "https://voiro.online/sim-did-guides.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Voiro Communications",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://voiro.online/assets/img/logo.png"
+            }
+        },
+        "about": {
+            "@type": "Thing",
+            "name": "VoIP Technology"
+        },
+        "educationalLevel": "Advanced",
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "IT Professionals"
+        }
+    }
+    </script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <script src="assets/js/main.js" defer></script>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --accent-color: #06b6d4;
+            --light-bg: #f8fafc;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #1e40af;
+            transform: translateY(-2px);
+        }
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-accent:hover {
+            background-color: #0891b2;
+            transform: translateY(-2px);
+        }
+        .guide-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .guide-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-left-color: var(--accent-color);
+        }
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        .code-block {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Header Component -->
+    <header class="sticky top-0 z-40 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <div class="w-10 h-10 bg-blue-900 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">V</span>
+                        </div>
+                        <span class="text-2xl font-bold text-blue-900">Voiro</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-900 font-medium transition">Home</a>
+                    
+                    <div class="relative group">
+                        <button class="text-gray-700 hover:text-blue-900 font-medium flex items-center space-x-1">
+                            <span>Solutions</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 hidden group-hover:block z-50">
+                            <a href="sip-trunking.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">SIP Trunking</a>
+                            <a href="cloud-pbx.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">Cloud PBX</a>
+                            <a href="dids.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">DID Numbers</a>
+                            <a href="dids.html#tfn" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">Toll-Free Numbers</a>
+                        </div>
+                    </div>
+                    
+                    <a href="pricing.html" class="text-gray-700 hover:text-blue-900 font-medium transition">Pricing</a>
+                    <a href="why-voiro.html" class="text-gray-700 hover:text-blue-900 font-medium transition">Why Voiro</a>
+                    
+                    <div class="relative group">
+                        <button class="text-gray-700 hover:text-blue-900 font-medium flex items-center space-x-1">
+                            <span>Resources</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 hidden group-hover:block z-50">
+                            <a href="blog.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">Blog</a>
+                            <a href="sim-did-guides.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">SIM & DID Guides</a>
+                            <a href="voip-basics.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">VoIP Basics</a>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-900 font-medium transition">Contact</a>
+                </nav>
+
+                <!-- CTA Buttons -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="tel:+18001234567" class="text-gray-700 hover:text-blue-900 font-medium">
+                        <i class="fas fa-phone-alt mr-1"></i> +1 800 123 4567
+                    </a>
+                    <a href="contact.html" class="btn-primary px-6 py-2 rounded-lg font-medium">
+                        Get Free Demo
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden mt-4 hidden">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-900 font-medium py-2 border-b">Home</a>
+                    
+                    <div class="py-2 border-b">
+                        <div class="font-medium text-gray-700 mb-2">Solutions</div>
+                        <div class="pl-4 flex flex-col space-y-2">
+                            <a href="sip-trunking.html" class="text-gray-600 hover:text-blue-900">SIP Trunking</a>
+                            <a href="cloud-pbx.html" class="text-gray-600 hover:text-blue-900">Cloud PBX</a>
+                            <a href="dids.html" class="text-gray-600 hover:text-blue-900">DID Numbers</a>
+                            <a href="dids.html#tfn" class="text-gray-600 hover:text-blue-900">Toll-Free Numbers</a>
+                        </div>
+                    </div>
+                    
+                    <a href="pricing.html" class="text-gray-700 hover:text-blue-900 font-medium py-2 border-b">Pricing</a>
+                    <a href="why-voiro.html" class="text-gray-700 hover:text-blue-900 font-medium py-2 border-b">Why Voiro</a>
+                    
+                    <div class="py-2 border-b">
+                        <div class="font-medium text-gray-700 mb-2">Resources</div>
+                        <div class="pl-4 flex flex-col space-y-2">
+                            <a href="blog.html" class="text-gray-600 hover:text-blue-900">Blog</a>
+                            <a href="sim-did-guides.html" class="text-gray-600 hover:text-blue-900">SIM & DID Guides</a>
+                            <a href="voip-basics.html" class="text-gray-600 hover:text-blue-900">VoIP Basics</a>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-900 font-medium py-2 border-b">Contact</a>
+                    
+                    <div class="pt-4">
+                        <a href="tel:+18001234567" class="text-gray-700 hover:text-blue-900 font-medium block mb-4">
+                            <i class="fas fa-phone-alt mr-2"></i> +1 800 123 4567
+                        </a>
+                        <a href="contact.html" class="btn-primary px-6 py-3 rounded-lg font-medium block text-center">
+                            Get Free Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="bg-gradient-to-r from-blue-900 to-blue-800 py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                    SIM & DID Technical Guides
+                </h1>
+                <p class="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
+                    Comprehensive technical documentation for IT administrators and VoIP engineers covering SIM card integration, DID number configuration, troubleshooting, and best practices.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#sim-guides" class="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition">
+                        <i class="fas fa-sim-card mr-2"></i> SIM Guides
+                    </a>
+                    <a href="#did-guides" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-900 transition">
+                        <i class="fas fa-phone-alt mr-2"></i> DID Guides
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIM Guides Section -->
+    <section id="sim-guides" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-blue-100 rounded-full mb-6">
+                    <i class="fas fa-sim-card text-blue-900 text-3xl"></i>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">SIM Card Integration Guides</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Technical documentation for integrating SIM cards with VoIP systems, GSM gateways, and mobile networks.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Guide 1 -->
+                <article class="bg-white rounded-xl p-8 guide-card">
+                    <div class="flex items-start mb-6">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-900 mb-2">SIM Card Provisioning & Activation</h3>
+                            <p class="text-gray-600">Complete guide to provisioning SIM cards for VoIP services, including APN configuration, authentication, and network registration.</p>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="font-bold text-gray-800 mb-2">Key Steps:</h4>
+                        <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                            <li>SIM card registration in carrier network</li>
+                            <li>APN configuration for data services</li>
+                            <li>SMS gateway setup for 2FA</li>
+                            <li>Quality of Service (QoS) configuration</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="text-cyan-600 font-medium hover:text-cyan-700 flex items-center">
+                        View Detailed Guide <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </article>
+                
+                <!-- Guide 2 -->
+                <article class="bg-white rounded-xl p-8 guide-card">
+                    <div class="flex items-start mb-6">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-900 mb-2">GSM Gateway Configuration</h3>
+                            <p class="text-gray-600">Step-by-step configuration for popular GSM gateways (Patton, GoIP, Grandstream) with SIP trunk integration.</p>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="font-bold text-gray-800 mb-2">Supported Devices:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Patton SmartNode</span>
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">GoIP Series</span>
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Grandstream GXW</span>
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Yeastar GSM</span>
+                        </div>
+                    </div>
+                    <a href="#" class="text-cyan-600 font-medium hover:text-cyan-700 flex items-center">
+                        View Configuration Examples <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </article>
+                
+                <!-- Guide 3 -->
+                <article class="bg-white rounded-xl p-8 guide-card">
+                    <div class="flex items-start mb-6">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-900 mb-2">SMS Gateway Integration</h3>
+                            <p class="text-gray-600">Configure SMS-to-email, SMS-to-SIP, and two-way SMS messaging for business communications and alerts.</p>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="font-bold text-gray-800 mb-2">Configuration Example:</h4>
+                        <div class="code-block">
+                            <code>
+# Asterisk configuration for SMS gateway<br>
+[smpp]<br>
+type=smpp<br>
+server=smpp.voiro.online<br>
+port=2775<br>
+system_id=your_username<br>
+password=your_password<br>
+system_type=smpp<br>
+                            </code>
+                        </div>
+                    </div>
+                    <a href="#" class="text-cyan-600 font-medium hover:text-cyan-700 flex items-center">
+                        View SMS API Documentation <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </article>
+                
+                <!-- Guide 4 -->
+                <article class="bg-white rounded-xl p-8 guide-card">
+                    <div class="flex items-start mb-6">
+                        <div class="step-number">4</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-900 mb-2">Troubleshooting SIM Issues</h3>
+                            <p class="text-gray-600">Common problems and solutions for SIM card connectivity, signal strength, and data transmission issues.</p>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="font-bold text-gray-800 mb-2">Common Issues:</h4>
+                        <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                            <li>No network registration</li>
+                            <li>Weak signal strength</li>
+                            <li>SMS delivery failures</li>
+                            <li>Data connectivity problems</li>
+                            <li>SIM card authentication errors</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="text-cyan-600 font-medium hover:text-cyan-700 flex items-center">
+                        View Troubleshooting Guide <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- DID Guides Section -->
+    <section id="did-guides" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-blue-100 rounded-full mb-6">
+                    <i class="fas fa-phone-alt text-blue-900 text-3xl"></i>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">DID Number Configuration Guides</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Technical documentation for configuring Direct Inward Dialing (DID) numbers with various PBX systems and call routing setups.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Guide 5 -->
+                <article class="bg-white rounded-xl p-8 guide-card">
+                    <div class="flex items-start mb-6">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-900 mb-2">DID Number Porting Process</h3>
+                            <p class="text-gray-600">Complete guide to porting existing phone numbers to Voiro, including documentation requirements and timeline.</p>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="font-bold text-gray-800 mb-2">Porting Timeline:</h4>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">Request Submission</span>
+                                <span class="font-bold text-blue-900">Day 1</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">Carrier Approval</span>
+                                <span class="font-bold text-blue-900">Day 2-3</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">Testing & Verification</span>
+                                <span class="font-bold text-blue-900">Day 4-5</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">Port Completion</span>
+                                <span class="font-bold text-blue-900">Day 7-10</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="text-cyan-600 font-medium hover:text-cyan-700 flex items-center">
+                        Download Porting Forms <i class="fas fa-download ml-2"></i>
+                    </a>
+                </article>
+                
+                <!-- Guide 6 -->
+                <article class="bg-white rounded-xl p-8 guide-card">
+                    <div class="flex items-start mb-6">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-900 mb-2">PBX Integration with DID Numbers</h3>
+                            <p class="text-gray-600">Configuration examples for Asterisk, FreeSWITCH, 3CX, and other PBX systems to receive incoming DID calls.</p>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="font-bold text-gray-800 mb-2">Asterisk Configuration:</h4>
+                        <div class="code-block text-sm">
+                            <code>
+; extensions.conf - DID routing example<br>
+[incoming-did]<br>
+exten => _+1XXXXXXXXXX,1,NoOp(Incoming call to DID ${EXTEN})<br>
+exten => _+1XXXXXXXXXX,n,Dial(SIP/100,30)<br>
+exten => _+1XXXXXXXXXX,n,Voicemail(100@default)<br>
+exten => _+1XXXXXXXXXX,n,Hangup()<br>
+                            </code>
+                        </div>
+                    </div>
+                    <a href="#" class="text-cyan-600 font-medium hover:text-cyan-700 flex items-center">
+                        View PBX Configuration Guides <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </article>
+                
+                <!-- Guide 7 -->
+                <article class="bg-white rounded-xl p-8 guide-card">
+                    <div class="flex items-start mb-6">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-900 mb-2">Advanced Call Routing</h3>
+                            <p class="text-gray-600">Set up complex call routing scenarios including time-based routing, geographic routing, and failover configurations.</p>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="font-bold text-gray-800 mb-2">Routing Options:</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="font-bold text-blue-900 mb-1">Time-Based</div>
+                                <div class="text-gray-600 text-sm">Route calls differently based on time of day</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="font-bold text-blue-900 mb-1">Geographic</div>
+                                <div class="text-gray-600 text-sm">Route based on caller location</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="font-bold text-blue-900 mb-1">Failover</div>
+                                <div class="text-gray-600 text-sm">Automatic backup routing</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="font-bold text-blue-900 mb-1">IVR Menus</div>
+                                <div class="text-gray-600 text-sm">Interactive voice response systems</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="text-cyan-600 font-medium hover:text-cyan-700 flex items-center">
+                        View Routing Configuration <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </article>
+                
+                <!-- Guide 8 -->
+                <article class="bg-white rounded-xl p-8 guide-card">
+                    <div class="flex items-start mb-6">
+                        <div class="step-number">4</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-900 mb-2">Emergency Calling (911/112) Setup</h3>
+                            <p class="text-gray-600">Configure emergency services calling with proper location information and compliance requirements.</p>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="font-bold text-gray-800 mb-2">Requirements:</h4>
+                        <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                            <li>Valid physical address for each DID</li>
+                            <li>Emergency callback number</li>
+                            <li>PSAP compatibility testing</li>
+                            <li>Regular address validation</li>
+                            <li>Compliance documentation</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="text-cyan-600 font-medium hover:text-cyan-700 flex items-center">
+                        View Emergency Services Guide <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Resources -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Technical Resources</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Download configuration files, API documentation, and technical specifications.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-download text-blue-900 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">Configuration Templates</h3>
+                    <p class="text-gray-600 mb-6">Ready-to-use configuration files for Asterisk, FreeSWITCH, 3CX, and other PBX systems.</p>
+                    <a href="#" class="btn-primary px-6 py-3 rounded-lg font-medium inline-block">
+                        Download Templates
+                    </a>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-code text-blue-900 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">API Documentation</h3>
+                    <p class="text-gray-600 mb-6">Complete REST API documentation for automating SIM and DID management.</p>
+                    <a href="#" class="btn-primary px-6 py-3 rounded-lg font-medium inline-block">
+                        View API Docs
+                    </a>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-book text-blue-900 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">Technical Specifications</h3>
+                    <p class="text-gray-600 mb-6">Detailed technical specifications, protocols, and compatibility matrices.</p>
+                    <a href="#" class="btn-primary px-6 py-3 rounded-lg font-medium inline-block">
+                        View Specifications
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Technical FAQ</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Answers to common technical questions about SIM and DID configuration.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
+                        <span class="font-medium text-blue-900">What SIP headers are used for DID number identification?</span>
+                        <i class="fas fa-chevron-down text-blue-900"></i>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700 mb-4">We use standard SIP headers for DID identification:</p>
+                        <div class="code-block text-sm">
+                            <code>
+From: "Caller Name" &lt;sip:+12125551212@voiro.online&gt;<br>
+To: &lt;sip:+14155551212@your-pbx.example.com&gt;<br>
+P-Asserted-Identity: &lt;sip:+12125551212@voiro.online&gt;<br>
+Diversion: &lt;sip:+12125551212@voiro.online&gt;;reason=unconditional<br>
+                            </code>
+                        </div>
+                        <p class="text-gray-700 mt-4">The called DID number is typically in the Request-URI and To header, while the calling number is in the From and P-Asserted-Identity headers.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
+                        <span class="font-medium text-blue-900">How do I configure failover routing for DID numbers?</span>
+                        <i class="fas fa-chevron-down text-blue-900"></i>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700">Failover routing can be configured through our web portal or API. You can set primary and secondary destinations for each DID:</p>
+                        <ol class="list-decimal pl-5 text-gray-700 space-y-2 mt-4">
+                            <li>Primary destination: SIP URI or phone number</li>
+                            <li>Secondary destination: Backup SIP URI or phone number</li>
+                            <li>Failover trigger: Timeout (default 20s) or specific SIP response codes</li>
+                            <li>Fallback after failover: Return to primary after specified time</li>
+                        </ol>
+                        <p class="text-gray-700 mt-4">You can also configure geographic failover based on the caller's location.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
+                        <span class="font-medium text-blue-900">What codecs are supported for SIM-to-VoIP calls?</span>
+                        <i class="fas fa-chevron-down text-blue-900"></i>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700">Our SIM gateway supports the following codecs in order of preference:</p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="font-bold text-blue-900">G.711 ulaw</div>
+                                <div class="text-gray-600 text-sm">64 kbps, PSTN quality</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="font-bold text-blue-900">G.711 alaw</div>
+                                <div class="text-gray-600 text-sm">64 kbps, International</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="font-bold text-blue-900">G.729</div>
+                                <div class="text-gray-600 text-sm">8 kbps, Low bandwidth</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="font-bold text-blue-900">GSM</div>
+                                <div class="text-gray-600 text-sm">13 kbps, Mobile standard</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mt-4">Codec negotiation is automatic, but you can force specific codecs through gateway configuration if needed.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
+                        <span class="font-medium text-blue-900">How do I monitor SIM card usage and performance?</span>
+                        <i class="fas fa-chevron-down text-blue-900"></i>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700">We provide multiple monitoring options:</p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-2 mt-4">
+                            <li><strong>Web Dashboard:</strong> Real-time usage statistics, signal strength, and call quality metrics</li>
+                            <li><strong>API Access:</strong> Programmatic access to usage data and performance metrics</li>
+                            <li><strong>SNMP Monitoring:</strong> For integration with existing network monitoring systems</li>
+                            <li><strong>Email Alerts:</strong> Notifications for low balance, poor signal, or unusual usage patterns</li>
+                            <li><strong>Call Detail Records (CDR):</strong> Detailed logs available for download in CSV format</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-900 to-cyan-800">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Need Technical Support?</h2>
+            <p class="text-blue-100 text-xl mb-10 max-w-3xl mx-auto">Our team of VoIP engineers is available 24/7 to help with complex configurations and troubleshooting.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="contact.html" class="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition">
+                    <i class="fas fa-headset mr-2"></i> Contact Technical Support
+                </a>
+                <a href="tel:+18001234567" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-900 transition">
+                    <i class="fas fa-phone-alt mr-2"></i> Emergency Support: +1 800 123 4567
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <footer class="bg-blue-900 text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                            <span class="text-blue-900 font-bold text-xl">V</span>
+                        </div>
+                        <span class="text-2xl font-bold text-white">Voiro</span>
+                    </div>
+                    <p class="text-blue-100 mb-6">
+                        Voiro provides enterprise-grade cloud communications solutions with unmatched reliability and 24/7 support.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-blue-100 hover:text-white transition">Home</a></li>
+                        <li><a href="sip-trunking.html" class="text-blue-100 hover:text-white transition">SIP Trunking</a></li>
+                        <li><a href="cloud-pbx.html" class="text-blue-100 hover:text-white transition">Cloud PBX</a></li>
+                        <li><a href="dids.html" class="text-blue-100 hover:text-white transition">DID Numbers</a></li>
+                        <li><a href="pricing.html" class="text-blue-100 hover:text-white transition">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Product Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Products</h3>
+                    <ul class="space-y-3">
+                        <li><a href="sip-trunking.html" class="text-blue-100 hover:text-white transition">SIP Trunking</a></li>
+                        <li><a href="cloud-pbx.html" class="text-blue-100 hover:text-white transition">Cloud PBX</a></li>
+                        <li><a href="dids.html" class="text-blue-100 hover:text-white transition">DID Numbers</a></li>
+                        <li><a href="dids.html#tfn" class="text-blue-100 hover:text-white transition">Toll-Free Numbers</a></li>
+                        <li><a href="why-voiro.html" class="text-blue-100 hover:text-white transition">Why Choose Voiro</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Contact Us</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-cyan-400"></i>
+                            <span class="text-blue-100">123 Business Park, Mumbai, India 400001</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-cyan-400"></i>
+                            <span class="text-blue-100">+1 800 123 4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-cyan-400"></i>
+                            <span class="text-blue-100">support@voiro.online</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-cyan-400"></i>
+                            <span class="text-blue-100">24/7 Support Available</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Policy Links -->
+            <div class="border-t border-blue-800 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <p class="text-blue-200 text-sm">© 2024 Voiro Communications. All rights reserved.</p>
+                    </div>
+                    <div class="flex flex-wrap justify-center space-x-6">
+                        <a href="privacy-policy.html" class="text-blue-200 hover:text-white text-sm">Privacy Policy</a>
+                        <a href="terms-of-service.html" class="text-blue-200 hover:text-white text-sm">Terms of Service</a>
+                        <a href="refund-policy.html" class="text-blue-200 hover:text-white text-sm">Refund Policy</a>
+                        <a href="acceptable-use-policy.html" class="text-blue-200 hover:text-white text-sm">Acceptable Use Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for contact form success -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-green-600 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Message Sent!</h3>
+                <p class="text-gray-600 mb-6">Thank you for contacting us. Our team will get back to you within 24 hours.</p>
+                <button id="close-modal" class="bg-blue-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-800 transition">Close</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

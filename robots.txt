@@ -1,0 +1,38 @@
+# robots.txt for Voiro Communications
+# Last updated: 2026-01-20
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://voiro.online/sitemap.xml
+
+# Disallow admin or private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /cgi-bin/
+
+# Allow all crawlers to access the entire site
+# We want search engines to index all our pages for SEO
+
+# Crawl-delay: 10  # Optional: Add if needed to reduce server load
+
+# Specific rules for search engines (optional)
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+
+User-agent: Slurp
+Allow: /
+Disallow: /admin/
+
+# Block AI crawlers if desired (optional)
+# User-agent: ChatGPT-User
+# Disallow: /
+
+# User-agent: GPTBot
+# Disallow: /

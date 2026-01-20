@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Description -->
+    <meta name="description" content="Voiro provides enterprise-grade cloud communications solutions including SIP trunking, cloud PBX, and DID numbers with 99.99% uptime, 24/7 support, and global coverage.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Voiro - Enterprise Cloud Communications Provider">
+    <meta property="og:description" content="Voiro provides enterprise-grade cloud communications solutions including SIP trunking, cloud PBX, and DID numbers with 99.99% uptime, 24/7 support, and global coverage.">
+    <meta property="og:image" content="https://voiro.online/assets/img/og-image.jpg">
+    <meta property="og:url" content="https://voiro.online/index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Voiro Communications">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Voiro - Enterprise Cloud Communications Provider">
+    <meta name="twitter:description" content="Voiro provides enterprise-grade cloud communications solutions including SIP trunking, cloud PBX, and DID numbers with 99.99% uptime, 24/7 support, and global coverage.">
+    <meta name="twitter:image" content="https://voiro.online/assets/img/twitter-image.jpg">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Voiro Communications",
+      "url": "https://voiro.online",
+      "logo": "https://voiro.online/assets/img/logo.png",
+      "description": "Enterprise-grade cloud communications provider offering SIP trunking, cloud PBX, and DID numbers with 99.99% uptime and 24/7 support.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Business Park",
+        "addressLocality": "Mumbai",
+        "addressRegion": "Maharashtra",
+        "postalCode": "400001",
+        "addressCountry": "IN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-800-123-4567",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Hindi"]
+      },
+      "sameAs": [
+        "https://twitter.com/voiro",
+        "https://linkedin.com/company/voiro",
+        "https://facebook.com/voiro"
+      ]
+    }
+    </script>
+    
+    <title>Voiro - Enterprise Cloud Communications Provider</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <script src="assets/js/main.js" defer></script>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --accent-color: #06b6d4;
+            --light-bg: #f8fafc;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #1e40af;
+            transform: translateY(-2px);
+        }
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-accent:hover {
+            background-color: #0891b2;
+            transform: translateY(-2px);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Header Component -->
+    <header class="sticky top-0 z-40 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <div class="w-10 h-10 bg-blue-900 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">V</span>
+                        </div>
+                        <span class="text-2xl font-bold text-blue-900">Voiro</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-900 font-medium transition">Home</a>
+                    
+                    <div class="relative group">
+                        <button class="text-gray-700 hover:text-blue-900 font-medium flex items-center space-x-1">
+                            <span>Solutions</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 hidden group-hover:block z-50">
+                            <a href="sip-trunking.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">SIP Trunking</a>
+                            <a href="cloud-pbx.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">Cloud PBX</a>
+                            <a href="dids.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">DID Numbers</a>
+                            <a href="dids.html#tfn" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">Toll-Free Numbers</a>
+                        </div>
+                    </div>
+                    
+                    <a href="pricing.html" class="text-gray-700 hover:text-blue-900 font-medium transition">Pricing</a>
+                    <a href="why-voiro.html" class="text-gray-700 hover:text-blue-900 font-medium transition">Why Voiro</a>
+                    
+                    <div class="relative group">
+                        <button class="text-gray-700 hover:text-blue-900 font-medium flex items-center space-x-1">
+                            <span>Resources</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 hidden group-hover:block z-50">
+                            <a href="blog.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">Blog</a>
+                            <a href="sim-did-guides.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">SIM & DID Guides</a>
+                            <a href="voip-basics.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">VoIP Basics</a>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-900 font-medium transition">Contact</a>
+                </nav>
+
+                <!-- CTA Buttons -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="tel:+18001234567" class="text-gray-700 hover:text-blue-900 font-medium">
+                        <i class="fas fa-phone-alt mr-1"></i> +1 800 123 4567
+                    </a>
+                    <a href="contact.html" class="btn-primary px-6 py-2 rounded-lg font-medium">
+                        Get Free Demo
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden mt-4 hidden">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-900 font-medium py-2 border-b">Home</a>
+                    
+                    <div class="py-2 border-b">
+                        <div class="font-medium text-gray-700 mb-2">Solutions</div>
+                        <div class="pl-4 flex flex-col space-y-2">
+                            <a href="sip-trunking.html" class="text-gray-600 hover:text-blue-900">SIP Trunking</a>
+                            <a href="cloud-pbx.html" class="text-gray-600 hover:text-blue-900">Cloud PBX</a>
+                            <a href="dids.html" class="text-gray-600 hover:text-blue-900">DID Numbers</a>
+                            <a href="dids.html#tfn" class="text-gray-600 hover:text-blue-900">Toll-Free Numbers</a>
+                        </div>
+                    </div>
+                    
+                    <a href="pricing.html" class="text-gray-700 hover:text-blue-900 font-medium py-2 border-b">Pricing</a>
+                    <a href="why-voiro.html" class="text-gray-700 hover:text-blue-900 font-medium py-2 border-b">Why Voiro</a>
+                    
+                    <div class="py-2 border-b">
+                        <div class="font-medium text-gray-700 mb-2">Resources</div>
+                        <div class="pl-4 flex flex-col space-y-2">
+                            <a href="blog.html" class="text-gray-600 hover:text-blue-900">Blog</a>
+                            <a href="sim-did-guides.html" class="text-gray-600 hover:text-blue-900">SIM & DID Guides</a>
+                            <a href="voip-basics.html" class="text-gray-600 hover:text-blue-900">VoIP Basics</a>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-900 font-medium py-2 border-b">Contact</a>
+                    
+                    <div class="pt-4">
+                        <a href="tel:+18001234567" class="text-gray-700 hover:text-blue-900 font-medium block mb-4">
+                            <i class="fas fa-phone-alt mr-2"></i> +1 800 123 4567
+                        </a>
+                        <a href="contact.html" class="btn-primary px-6 py-3 rounded-lg font-medium block text-center">
+                            Get Free Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-50 to-cyan-50 py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 mb-6">
+                    Enterprise Cloud Communications
+                    <span class="text-cyan-600">Made Simple</span>
+                </h1>
+                <p class="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+                    Voiro provides reliable SIP trunking, cloud PBX, and DID solutions with 99.99% uptime, enterprise-grade security, and 24/7 expert support.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="contact.html" class="btn-primary px-8 py-4 rounded-lg font-semibold text-lg">
+                        <i class="fas fa-play-circle mr-2"></i> Get Free Demo
+                    </a>
+                    <a href="contact.html" class="btn-accent px-8 py-4 rounded-lg font-semibold text-lg">
+                        <i class="fas fa-headset mr-2"></i> Contact Sales
+                    </a>
+                </div>
+                <div class="mt-12 grid grid-cols-2 md:grid-cols-5 gap-6">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-900">99.99%</div>
+                        <div class="text-gray-600">Uptime SLA</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-900">24/7</div>
+                        <div class="text-gray-600">Support</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-900">50+</div>
+                        <div class="text-gray-600">Countries</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-900">10K+</div>
+                        <div class="text-gray-600">Customers</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-900">5ms</div>
+                        <div class="text-gray-600">Latency</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Complete Communications Solutions</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">From SIP trunking to cloud PBX and global DID numbers, we provide everything your business needs for seamless communication.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gray-50 rounded-xl p-8 feature-card transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-broadcast-tower text-blue-900 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">SIP Trunking</h3>
+                    <p class="text-gray-600 mb-6">High-quality SIP trunks with support for G.711, G.729, Opus codecs. Connect with any PBX including Asterisk, FreeSWITCH, 3CX.</p>
+                    <a href="sip-trunking.html" class="text-cyan-600 font-medium hover:text-cyan-700">Learn More →</a>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-gray-50 rounded-xl p-8 feature-card transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cloud text-blue-900 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">Cloud PBX</h3>
+                    <p class="text-gray-600 mb-6">Fully-featured cloud PBX with IVR, call queues, voicemail-to-email, conference bridging, and mobile apps.</p>
+                    <a href="cloud-pbx.html" class="text-cyan-600 font-medium hover:text-cyan-700">Learn More →</a>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 rounded-xl p-8 feature-card transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-phone-alt text-blue-900 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">DID Numbers</h3>
+                    <p class="text-gray-600 mb-6">Local, national, and toll-free numbers across 50+ countries. Instant activation with full porting support.</p>
+                    <a href="dids.html" class="text-cyan-600 font-medium hover:text-cyan-700">Learn More →</a>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-gray-50 rounded-xl p-8 feature-card transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-blue-900 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">Call Center Solutions</h3>
+                    <p class="text-gray-600 mb-6">Advanced call center features including ACD, predictive dialer, real-time analytics, and CRM integrations.</p>
+                    <a href="contact.html" class="text-cyan-600 font-medium hover:text-cyan-700">Learn More →</a>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-gray-50 rounded-xl p-8 feature-card transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-blue-900 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">Enterprise Security</h3>
+                    <p class="text-gray-600 mb-6">End-to-end encryption, DDoS protection, fraud detection, and compliance with global security standards.</p>
+                    <a href="contact.html" class="text-cyan-600 font-medium hover:text-cyan-700">Learn More →</a>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="bg-gray-50 rounded-xl p-8 feature-card transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-blue-900 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">Analytics & Reporting</h3>
+                    <p class="text-gray-600 mb-6">Comprehensive dashboards with call analytics, usage reports, billing insights, and custom reporting.</p>
+                    <a href="contact.html" class="text-cyan-600 font-medium hover:text-cyan-700">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Voiro Section -->
+    <section class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-6">Why Choose Voiro?</h2>
+                    <p class="text-gray-700 mb-8 text-lg">We're built on three core principles that set us apart from other communication providers:</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-shield-alt text-blue-900"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-blue-900 mb-2">Network Quality & Uptime</h4>
+                                <p class="text-gray-700">Our carrier-grade network delivers 99.99% uptime with redundant data centers, multiple Tier-1 carrier connections, and 5ms latency guarantees.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-lock text-blue-900"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-blue-900 mb-2">Enterprise Security</h4>
+                                <p class="text-gray-700">End-to-end encryption, DDoS protection, fraud detection, and compliance with global security standards including GDPR and HIPAA.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-headset text-blue-900"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-blue-900 mb-2">24/7 Expert Support</h4>
+                                <p class="text-gray-700">Our support team includes VoIP engineers available around the clock to resolve issues and optimize your communication setup.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-6 text-center">Our Infrastructure</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                            <span class="text-gray-700">Data Centers</span>
+                            <span class="font-bold text-blue-900">6 globally</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                            <span class="text-gray-700">Carrier Partners</span>
+                            <span class="font-bold text-blue-900">15+ Tier-1</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                            <span class="text-gray-700">Network Capacity</span>
+                            <span class="font-bold text-blue-900">10 Gbps+</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                            <span class="text-gray-700">Peering Points</span>
+                            <span class="font-bold text-blue-900">50+ worldwide</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3">
+                            <span class="text-gray-700">Support Response Time</span>
+                            <span class="font-bold text-blue-900">&lt; 5 minutes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">How It Works</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Get started with Voiro in four simple steps</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center">
+                            <span class="text-white text-2xl font-bold">1</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">Sign Up</h3>
+                    <p class="text-gray-600">Create your account and choose your preferred services (SIP trunking, Cloud PBX, DID numbers).</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center">
+                            <span class="text-white text-2xl font-bold">2</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">Configure</h3>
+                    <p class="text-gray-600">Set up your PBX, configure call routing, IVR menus, and user extensions through our dashboard.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center">
+                            <span class="text-white text-2xl font-bold">3</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">Integrate</h3>
+                    <p class="text-gray-600">Connect your existing systems, port your numbers, and integrate with CRM or helpdesk software.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center">
+                            <span class="text-white text-2xl font-bold">4</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">Go Live</h3>
+                    <p class="text-gray-600">Start making and receiving calls with enterprise-grade quality and 24/7 support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">What Our Customers Say</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Thousands of businesses trust Voiro for their communication needs</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-blue-900 font-bold">RK</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-blue-900">Rajesh Kumar</h4>
+                            <p class="text-gray-600 text-sm">CTO, TechSolutions Inc.</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"Voiro's SIP trunking solution reduced our communication costs by 40% while improving call quality. Their 24/7 support is exceptional."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-blue-900 font-bold">SP</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-blue-900">Sarah Patel</h4>
+                            <p class="text-gray-600 text-sm">Operations Manager, CallFlow Solutions</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"The cloud PBX has transformed our customer service. The IVR and call queue features have reduced wait times by 60%."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-blue-900 font-bold">AM</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-blue-900">Amit Mehta</h4>
+                            <p class="text-gray-600 text-sm">CEO, GlobalConnect Ltd.</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"We needed local numbers in 5 countries. Voiro delivered within 24 hours. Their international coverage is impressive."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Frequently Asked Questions</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Find answers to common questions about our services</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
+                        <span class="font-medium text-blue-900">What is SIP trunking and how does it work?</span>
+                        <i class="fas fa-chevron-down text-blue-900"></i>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700">SIP trunking is a method of delivering telephone and other communication services over the internet using the Session Initiation Protocol (SIP). It connects your PBX to the Public Switched Telephone Network (PSTN) via the internet, replacing traditional telephone lines. With Voiro's SIP trunking, you get high-quality voice calls, scalability, and significant cost savings compared to traditional phone lines.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
+                        <span class="font-medium text-blue-900">How long does it take to port my existing numbers?</span>
+                        <i class="fas fa-chevron-down text-blue-900"></i>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700">Number porting typically takes 7-10 business days, depending on the current carrier and location. We handle the entire porting process for you, including submitting the port request, coordinating with your current provider, and testing the ported numbers. We provide regular updates throughout the process.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
+                        <span class="font-medium text-blue-900">Do you offer emergency calling services?</span>
+                        <i class="fas fa-chevron-down text-blue-900"></i>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700">Yes, we provide emergency calling (911/112/100) services in supported regions. However, it's important to note that emergency services may not be available in all areas, and you should maintain alternative means of contacting emergency services. We require accurate location information to be configured for emergency calling to work properly.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
+                        <span class="font-medium text-blue-900">What PBX systems do you support?</span>
+                        <i class="fas fa-chevron-down text-blue-900"></i>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700">We support all major PBX systems including Asterisk, FreeSWITCH, FusionPBX, 3CX, Avaya, Cisco, Mitel, and many others. Our SIP trunks are standards-compliant and work with any SIP-enabled device or system. We provide detailed configuration guides and technical support for setup.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
+                        <span class="font-medium text-blue-900">Is there a free trial available?</span>
+                        <i class="fas fa-chevron-down text-blue-900"></i>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700">Yes, we offer a 30-day free trial that includes 100 minutes of calling and 5 SIP channels. No credit card is required to start the trial. You can upgrade to a paid plan at any time during or after the trial period.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="py-16 bg-gradient-to-r from-blue-900 to-cyan-800">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Communications?</h2>
+            <p class="text-blue-100 text-xl mb-10 max-w-3xl mx-auto">Join thousands of businesses that trust Voiro for reliable, scalable, and cost-effective communication solutions.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="contact.html" class="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition">
+                    <i class="fas fa-play-circle mr-2"></i> Start Free Trial
+                </a>
+                <a href="tel:+18001234567" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-900 transition">
+                    <i class="fas fa-phone-alt mr-2"></i> Call for Demo: +1 800 123 4567
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <footer class="bg-blue-900 text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                            <span class="text-blue-900 font-bold text-xl">V</span>
+                        </div>
+                        <span class="text-2xl font-bold text-white">Voiro</span>
+                    </div>
+                    <p class="text-blue-100 mb-6">
+                        Voiro provides enterprise-grade cloud communications solutions with unmatched reliability and 24/7 support.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-blue-100 hover:text-white transition">Home</a></li>
+                        <li><a href="sip-trunking.html" class="text-blue-100 hover:text-white transition">SIP Trunking</a></li>
+                        <li><a href="cloud-pbx.html" class="text-blue-100 hover:text-white transition">Cloud PBX</a></li>
+                        <li><a href="dids.html" class="text-blue-100 hover:text-white transition">DID Numbers</a></li>
+                        <li><a href="pricing.html" class="text-blue-100 hover:text-white transition">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Product Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Products</h3>
+                    <ul class="space-y-3">
+                        <li><a href="sip-trunking.html" class="text-blue-100 hover:text-white transition">SIP Trunking</a></li>
+                        <li><a href="cloud-pbx.html" class="text-blue-100 hover:text-white transition">Cloud PBX</a></li>
+                        <li><a href="dids.html" class="text-blue-100 hover:text-white transition">DID Numbers</a></li>
+                        <li><a href="dids.html#tfn" class="text-blue-100 hover:text-white transition">Toll-Free Numbers</a></li>
+                        <li><a href="why-voiro.html" class="text-blue-100 hover:text-white transition">Why Choose Voiro</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Contact Us</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-cyan-400"></i>
+                            <span class="text-blue-100">123 Business Park, Mumbai, India 400001</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-cyan-400"></i>
+                            <span class="text-blue-100">+1 800 123 4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-cyan-400"></i>
+                            <span class="text-blue-100">support@voiro.online</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-cyan-400"></i>
+                            <span class="text-blue-100">24/7 Support Available</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Policy Links -->
+            <div class="border-t border-blue-800 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <p class="text-blue-200 text-sm">© 2024 Voiro Communications. All rights reserved.</p>
+                    </div>
+                    <div class="flex flex-wrap justify-center space-x-6">
+                        <a href="privacy-policy.html" class="text-blue-200 hover:text-white text-sm">Privacy Policy</a>
+                        <a href="terms-of-service.html" class="text-blue-200 hover:text-white text-sm">Terms of Service</a>
+                        <a href="refund-policy.html" class="text-blue-200 hover:text-white text-sm">Refund Policy</a>
+                        <a href="acceptable-use-policy.html" class="text-blue-200 hover:text-white text-sm">Acceptable Use Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for contact form success -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-green-600 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Message Sent!</h3>
+                <p class="text-gray-600 mb-6">Thank you for contacting us. Our team will get back to you within 24 hours.</p>
+                <button id="close-modal" class="bg-blue-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-800 transition">Close</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoIP Basics - Beginner's Guide to Voice Over IP | Voiro</title>
+    <meta name="description" content="Learn VoIP fundamentals: how Voice over IP works, benefits for businesses, implementation basics, and key terminology. Perfect for business decision-makers and beginners.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://voiro.online/voip-basics.html">
+    <meta property="og:title" content="VoIP Basics - Beginner's Guide to Voice Over IP | Voiro">
+    <meta property="og:description" content="Learn VoIP fundamentals: how Voice over IP works, benefits for businesses, implementation basics, and key terminology. Perfect for business decision-makers and beginners.">
+    <meta property="og:image" content="https://voiro.online/assets/img/voip-basics-og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://voiro.online/voip-basics.html">
+    <meta property="twitter:title" content="VoIP Basics - Beginner's Guide to Voice Over IP | Voiro">
+    <meta property="twitter:description" content="Learn VoIP fundamentals: how Voice over IP works, benefits for businesses, implementation basics, and key terminology. Perfect for business decision-makers and beginners.">
+    <meta property="twitter:image" content="https://voiro.online/assets/img/voip-basics-og-image.jpg">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "VoIP Basics - Beginner's Guide to Voice Over IP",
+        "description": "Comprehensive guide to Voice over IP technology for business decision-makers and beginners",
+        "image": "https://voiro.online/assets/img/voip-basics-og-image.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Voiro Communications"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Voiro Communications",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://voiro.online/assets/img/logo.png"
+            }
+        },
+        "datePublished": "2026-01-20",
+        "dateModified": "2026-01-20",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://voiro.online/voip-basics.html"
+        },
+        "educationalLevel": "Beginner",
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "Business Professionals"
+        }
+    }
+    </script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <script src="assets/js/main.js" defer></script>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --accent-color: #06b6d4;
+            --light-bg: #f8fafc;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #1e40af;
+            transform: translateY(-2px);
+        }
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-accent:hover {
+            background-color: #0891b2;
+            transform: translateY(-2px);
+        }
+        .info-card {
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-top-color: var(--accent-color);
+        }
+        .term-definition {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Header Component -->
+    <header class="sticky top-0 z-40 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <div class="w-10 h-10 bg-blue-900 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">V</span>
+                        </div>
+                        <span class="text-2xl font-bold text-blue-900">Voiro</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-900 font-medium transition">Home</a>
+                    
+                    <div class="relative group">
+                        <button class="text-gray-700 hover:text-blue-900 font-medium flex items-center space-x-1">
+                            <span>Solutions</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 hidden group-hover:block z-50">
+                            <a href="sip-trunking.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">SIP Trunking</a>
+                            <a href="cloud-pbx.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">Cloud PBX</a>
+                            <a href="dids.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">DID Numbers</a>
+                            <a href="dids.html#tfn" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">Toll-Free Numbers</a>
+                        </div>
+                    </div>
+                    
+                    <a href="pricing.html" class="text-gray-700 hover:text-blue-900 font-medium transition">Pricing</a>
+                    <a href="why-voiro.html" class="text-gray-700 hover:text-blue-900 font-medium transition">Why Voiro</a>
+                    
+                    <div class="relative group">
+                        <button class="text-gray-700 hover:text-blue-900 font-medium flex items-center space-x-1">
+                            <span>Resources</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 hidden group-hover:block z-50">
+                            <a href="blog.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">Blog</a>
+                            <a href="sim-did-guides.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">SIM & DID Guides</a>
+                            <a href="voip-basics.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900">VoIP Basics</a>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-900 font-medium transition">Contact</a>
+                </nav>
+
+                <!-- CTA Buttons -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="tel:+18001234567" class="text-gray-700 hover:text-blue-900 font-medium">
+                        <i class="fas fa-phone-alt mr-1"></i> +1 800 123 4567
+                    </a>
+                    <a href="contact.html" class="btn-primary px-6 py-2 rounded-lg font-medium">
+                        Get Free Demo
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden mt-4 hidden">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-900 font-medium py-2 border-b">Home</a>
+                    
+                    <div class="py-2 border-b">
+                        <div class="font-medium text-gray-700 mb-2">Solutions</div>
+                        <div class="pl-4 flex flex-col space-y-2">
+                            <a href="sip-trunking.html" class="text-gray-600 hover:text-blue-900">SIP Trunking</a>
+                            <a href="cloud-pbx.html" class="text-gray-600 hover:text-blue-900">Cloud PBX</a>
+                            <a href="dids.html" class="text-gray-600 hover:text-blue-900">DID Numbers</a>
+                            <a href="dids.html#tfn" class="text-gray-600 hover:text-blue-900">Toll-Free Numbers</a>
+                        </div>
+                    </div>
+                    
+                    <a href="pricing.html" class="text-gray-700 hover:text-blue-900 font-medium py-2 border-b">Pricing</a>
+                    <a href="why-voiro.html" class="text-gray-700 hover:text-blue-900 font-medium py-2 border-b">Why Voiro</a>
+                    
+                    <div class="py-2 border-b">
+                        <div class="font-medium text-gray-700 mb-2">Resources</div>
+                        <div class="pl-4 flex flex-col space-y-2">
+                            <a href="blog.html" class="text-gray-600 hover:text-blue-900">Blog</a>
+                            <a href="sim-did-guides.html" class="text-gray-600 hover:text-blue-900">SIM & DID Guides</a>
+                            <a href="voip-basics.html" class="text-gray-600 hover:text-blue-900">VoIP Basics</a>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-900 font-medium py-2 border-b">Contact</a>
+                    
+                    <div class="pt-4">
+                        <a href="tel:+18001234567" class="text-gray-700 hover:text-blue-900 font-medium block mb-4">
+                            <i class="fas fa-phone-alt mr-2"></i> +1 800 123 4567
+                        </a>
+                        <a href="contact.html" class="btn-primary px-6 py-3 rounded-lg font-medium block text-center">
+                            Get Free Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="bg-gradient-to-r from-blue-900 to-blue-800 py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                    VoIP Basics: Beginner's Guide
+                </h1>
+                <p class="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
+                    Everything you need to know about Voice over IP technology - from fundamental concepts to business implementation.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#what-is-voip" class="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition">
+                        <i class="fas fa-play-circle mr-2"></i> Start Learning
+                    </a>
+                    <a href="#benefits" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-900 transition">
+                        <i class="fas fa-chart-line mr-2"></i> See Benefits
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is VoIP Section -->
+    <section id="what-is-voip" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">What is VoIP?</h2>
+                    <p class="text-gray-600 text-lg">Voice over Internet Protocol (VoIP) is a technology that allows you to make voice calls using a broadband Internet connection instead of a regular (or analog) phone line.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white rounded-xl p-8 info-card">
+                        <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-network-wired text-blue-900 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-900 mb-4">How VoIP Works</h3>
+                        <p class="text-gray-600 mb-4">VoIP converts your voice into digital signals that travel over the Internet. When you call a regular phone number, the signal is converted to a regular telephone signal before it reaches the destination.</p>
+                        <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                            <li>Voice is converted to digital packets</li>
+                            <li>Packets travel over the Internet</li>
+                            <li>Packets are reassembled at destination</li>
+                            <li>Digital signal converted back to voice</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-8 info-card">
+                        <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-phone-alt text-blue-900 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-900 mb-4">Traditional vs VoIP</h3>
+                        <p class="text-gray-600 mb-4">Traditional phone systems use circuit-switched networks, while VoIP uses packet-switched networks. This fundamental difference enables VoIP's cost savings and flexibility.</p>
+                        <div class="term-definition">
+                            <strong>Circuit-Switched:</strong> Dedicated connection for entire call duration
+                        </div>
+                        <div class="term-definition">
+                            <strong>Packet-Switched:</strong> Data broken into packets, sent independently, reassembled
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- VoIP Diagram -->
+                <div class="bg-white rounded-xl p-8 mb-12">
+                    <h3 class="text-xl font-bold text-blue-900 mb-6 text-center">VoIP Call Flow</h3>
+                    <div class="flex flex-col md:flex-row items-center justify-between">
+                        <div class="text-center mb-6 md:mb-0">
+                            <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-user text-blue-900 text-2xl"></i>
+                            </div>
+                            <div class="font-bold text-blue-900">Caller</div>
+                            <div class="text-gray-600 text-sm">VoIP Phone/Softphone</div>
+                        </div>
+                        
+                        <div class="text-center mb-6 md:mb-0">
+                            <div class="text-blue-900 mb-2">
+                                <i class="fas fa-arrow-right text-2xl"></i>
+                                <i class="fas fa-globe text-xl mx-2"></i>
+                                <i class="fas fa-arrow-right text-2xl"></i>
+                            </div>
+                            <div class="font-bold text-blue-900">Internet</div>
+                            <div class="text-gray-600 text-sm">Digital Packets</div>
+                        </div>
+                        
+                        <div class="text-center mb-6 md:mb-0">
+                            <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-server text-blue-900 text-2xl"></i>
+                            </div>
+                            <div class="font-bold text-blue-900">VoIP Server</div>
+                            <div class="text-gray-600 text-sm">Call Processing</div>
+                        </div>
+                        
+                        <div class="text-center mb-6 md:mb-0">
+                            <div class="text-blue-900 mb-2">
+                                <i class="fas fa-arrow-right text-2xl"></i>
+                                <i class="fas fa-exchange-alt text-xl mx-2"></i>
+                                <i class="fas fa-arrow-right text-2xl"></i>
+                            </div>
+                            <div class="font-bold text-blue-900">Gateway</div>
+                            <div class="text-gray-600 text-sm">PSTN Conversion</div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-user-friends text-blue-900 text-2xl"></i>
+                            </div>
+                            <div class="font-bold text-blue-900">Receiver</div>
+                            <div class="text-gray-600 text-sm">Any Phone</div>
+                        </div>
+                    </div>
+                    <p class="text-center text-gray-600 mt-4">VoIP calls can connect to other VoIP devices or traditional phones through gateways</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Business Benefits of VoIP</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">VoIP offers significant advantages over traditional phone systems for businesses of all sizes.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-xl p-8 info-card">
+                    <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-dollar-sign text-green-900 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">Cost Savings</h3>
+                    <p class="text-gray-600 mb-4">Reduce communication costs by 30-50% compared to traditional phone systems.</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>Lower call rates, especially international</li>
+                        <li>No separate network for voice</li>
+                        <li>Reduced maintenance costs</li>
+                        <li>No hardware investment for cloud solutions</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-8 info-card">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-expand-arrows-alt text-blue-900 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">Scalability</h3>
+                    <p class="text-gray-600 mb-4">Easily add or remove lines as your business grows without expensive hardware changes.</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>Add users in minutes</li>
+                        <li>Scale up for seasonal demands</li>
+                        <li>No physical line limitations</li>
+                        <li>Pay only for what you use</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-8 info-card">
+                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-purple-900 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">Mobility & Flexibility</h3>
+                    <p class="text-gray-600 mb-4">Work from anywhere with the same business phone number and features.</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>Use smartphones as extensions</li>
+                        <li>Hot-desking for remote workers</li>
+                        <li>Follow-me calling</li>
+                        <li>Virtual office capabilities</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-8 info-card">
+                    <div class="w-16 h-16 bg-cyan-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cogs text-cyan-900 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">Advanced Features</h3>
+                    <p class="text-gray-600 mb-4">Access enterprise-level features without enterprise-level costs.</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>Auto-attendant & IVR</li>
+                        <li>Call recording & analytics</li>
+                        <li>Conference bridging</li>
+                        <li>CRM integration</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-8 info-card">
+                    <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-orange-900 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">Reliability & Redundancy</h3>
+                    <p class="text-gray-600 mb-4">Modern VoIP offers 99.99% uptime with built-in failover and redundancy.</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>Multiple data center redundancy</li>
+                        <li>Automatic failover</li>
+                        <li>Disaster recovery options</li>
+                        <li>24/7 monitoring</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-8 info-card">
+                    <div class="w-16 h-16 bg-pink-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-pink-900 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">Integration & Analytics</h3>
+                    <p class="text-gray-600 mb-4">Seamlessly integrate with business tools and gain insights from call analytics.</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>CRM & helpdesk integration</li>
+                        <li>Real-time dashboards</li>
+                        <li>Call quality metrics</li>
+                        <li>Usage reporting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">VoIP vs Traditional Phone Systems</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">See how VoIP compares to traditional landline systems across key business metrics.</p>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Traditional Phone System</th>
+                            <th>VoIP System</th>
+                            <th>Advantage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-medium">Initial Setup Cost</td>
+                            <td>High (hardware, lines, installation)</td>
+                            <td>Low to Moderate (often no hardware)</td>
+                            <td><span class="text-green-600 font-bold">VoIP</span></td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">Monthly Cost</td>
+                            <td>High (per line, per minute)</td>
+                            <td>Low (unlimited plans available)</td>
+                            <td><span class="text-green-600 font-bold">VoIP</span></td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">International Calls</td>
+                            <td>Very Expensive</td>
+                            <td>Low cost or included</td>
+                            <td><span class="text-green-600 font-bold">VoIP</span></td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">Scalability</td>
+                            <td>Difficult & Expensive</td>
+                            <td>Easy & Instant</td>
+                            <td><span class="text-green-600 font-bold">VoIP</span></td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">Mobility</td>
+                            <td>Limited (physical location)</td>
+                            <td>Anywhere with internet</td>
+                            <td><span class="text-green-600 font-bold">VoIP</span></td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">Advanced Features</td>
+                            <td>Limited & Costly</td>
+                            <td>Included & Extensive</td>
+                            <td><span class="text-green-600 font-bold">VoIP</span></td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">Maintenance</td>
+                            <td>On-site technician required</td>
+                            <td>Remote management</td>
+                            <td><span class="text-green-600 font-bold">VoIP</span></td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">Reliability</td>
+                            <td>High (dedicated lines)</td>
+                            <td>High (with proper setup)</td>
+                            <td><span class="text-blue-600 font-bold">Equal</span></td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">Power Dependency</td>
+                            <td>Works during power outages</td>
+                            <td>Requires backup power</td>
+                            <td><span class="text-red-600 font-bold">Traditional</span></td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">Emergency Calling</td>
+                            <td>Reliable location tracking</td>
+                            <td>Requires configuration</td>
+                            <td><span class="text-red-600 font-bold">Traditional</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <p class="text-gray-600">Note: Modern VoIP solutions have addressed many traditional concerns with improved emergency calling and power backup options.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Terminology -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Key VoIP Terminology</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Understanding common VoIP terms will help you make informed decisions about your communication system.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="font-bold text-blue-900 mb-2">SIP (Session Initiation Protocol)</h3>
+                    <p class="text-gray-600 text-sm">The signaling protocol used to establish, maintain, and terminate VoIP calls. Think of it as the "language" VoIP devices use to communicate.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="font-bold text-blue-900 mb-2">Codec</h3>
+                    <p class="text-gray-600 text-sm">Software that compresses and decompresses voice data. Common codecs include G.711 (high quality) and G.729 (bandwidth efficient).</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="font-bold text-blue-900 mb-2">PBX (Private Branch Exchange)</h3>
+                    <p class="text-gray-600 text-sm">A private telephone network within a company. Cloud PBX is hosted remotely, while on-premise PBX is located at your office.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="font-bold text-blue-900 mb-2">SIP Trunking</h3>
+                    <p class="text-gray-600 text-sm">A method of delivering telephone services over the internet, connecting your PBX to the Public Switched Telephone Network (PSTN).</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="font-bold text-blue-900 mb-2">DID (Direct Inward Dialing)</h3>
+                    <p class="text-gray-600 text-sm">A phone number that allows external callers to reach an internal extension directly without going through a receptionist or auto-attendant.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="font-bold text-blue-900 mb-2">QoS (Quality of Service)</h3>
+                    <p class="text-gray-600 text-sm">Network technology that prioritizes voice traffic over other types of data to ensure clear, uninterrupted calls.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="font-bold text-blue-900 mb-2">IVR (Interactive Voice Response)</h3>
+                    <p class="text-gray-600 text-sm">Automated phone system that interacts with callers, gathers information, and routes calls to the appropriate recipient.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="font-bold text-blue-900 mb-2">PSTN (Public Switched Telephone Network)</h3>
+                    <p class="text-gray-600 text-sm">The traditional circuit-switched telephone network that has been in use for over a century.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="font-bold text-blue-900 mb-2">Latency</h3>
+                    <p class="text-gray-600 text-sm">The delay between when a voice packet is sent and when it's received. Low latency is crucial for natural conversation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started -->
+    <section class="py-16 bg-gradient-to-r from-blue-900 to-cyan-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Getting Started with VoIP</h2>
+                <p class="text-blue-100 text-lg max-w-3xl mx-auto">Follow these steps to implement VoIP in your business</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center">
+                            <span class="text-white text-2xl font-bold">1</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Assess Needs</h3>
+                    <p class="text-blue-100">Evaluate your current phone system, number of users, and required features.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center">
+                            <span class="text-white text-2xl font-bold">2</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Choose Provider</h3>
+                    <p class="text-blue-100">Select a reliable VoIP provider with the features and support you need.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center">
+                            <span class="text-white text-2xl font-bold">3</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Setup & Configure</h3>
+                    <p class="text-blue-100">Configure your system, port numbers if needed, and train your team.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center">
+                            <span class="text-white text-2xl font-bold">4</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Go Live & Optimize</h3>
+                    <p class="text-blue-100">Launch your VoIP system and continuously optimize based on usage.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="contact.html" class="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-block">
+                    <i class="fas fa-play-circle mr-2"></i> Get Free VoIP Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">VoIP Basics FAQ</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Common questions from businesses considering VoIP</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
+                        <span class="font-medium text-blue-900">Is VoIP call quality as good as traditional phones?</span>
+                        <i class="fas fa-chevron-down text-blue-900"></i>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700">Yes, with a proper internet connection and Quality of Service (QoS) configuration, VoIP call quality is often better than traditional phones. Modern VoIP uses high-quality codecs like G.711 and Opus that provide HD voice quality. The key requirements are sufficient bandwidth (100 kbps per call), low latency (&lt;150ms), and proper network configuration.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
+                        <span class="font-medium text-blue-900">What internet speed do I need for VoIP?</span>
+                        <i class="fas fa-chevron-down text-blue-900"></i>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700">For business VoIP, we recommend:</p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-2 mt-4">
+                            <li><strong>Per concurrent call:</strong> 100 kbps upload/download</li>
+                            <li><strong>Small business (10 users):</strong> 5-10 Mbps dedicated</li>
+                            <li><strong>Medium business (50 users):</strong> 25-50 Mbps dedicated</li>
+                            <li><strong>Large business (100+ users):</strong> 100+ Mbps with QoS</li>
+                        </ul>
+                        <p class="text-gray-700 mt-4">More important than raw speed is latency (&lt;150ms), jitter (&lt;30ms), and packet loss (&lt;1%).</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
+                        <span class="font-medium text-blue-900">Can I keep my existing phone numbers?</span>
+                        <i class="fas fa-chevron-down text-blue-900"></i>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700">Yes, in most cases you can port your existing phone numbers to VoIP through a process called LNP (Local Number Portability). The porting process typically takes 7-10 business days and requires authorization from your current provider. We handle the entire porting process for you, ensuring no disruption to your business.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
+                        <span class="font-medium text-blue-900">What happens if my internet goes down?</span>
+                        <i class="fas fa-chevron-down text-blue-900"></i>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700">We offer several redundancy options:</p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-2 mt-4">
+                            <li><strong>Failover to mobile:</strong> Calls automatically forwarded to cell phones</li>
+                            <li><strong>Multiple internet connections:</strong> Automatic switch to backup connection</li>
+                            <li><strong>Cloud redundancy:</strong> Calls routed through alternative data centers</li>
+                            <li><strong>Local survivability:</strong> On-premise gateway with PSTN backup</li>
+                        </ul>
+                        <p class="text-gray-700 mt-4">With proper planning, VoIP can be more reliable than traditional phone systems.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
+                        <span class="font-medium text-blue-900">How much does VoIP actually cost?</span>
+                        <i class="fas fa-chevron-down text-blue-900"></i>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700">VoIP costs vary based on features and scale:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="font-bold text-blue-900">Basic Plan</div>
+                                <div class="text-2xl font-bold text-blue-900 mt-2">$15-25/user/mo</div>
+                                <div class="text-gray-600 text-sm mt-2">Core features, unlimited domestic calling</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="font-bold text-blue-900">Business Plan</div>
+                                <div class="text-2xl font-bold text-blue-900 mt-2">$25-40/user/mo</div>
+                                <div class="text-gray-600 text-sm mt-2">Advanced features, analytics, integrations</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="font-bold text-blue-900">Enterprise</div>
+                                <div class="text-2xl font-bold text-blue-900 mt-2">$40-60/user/mo</div>
+                                <div class="text-gray-600 text-sm mt-2">Full customization, 24/7 support, SLA</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mt-4">Most businesses save 30-50% compared to traditional phone systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-6">Ready to Learn More About VoIP?</h2>
+            <p class="text-gray-600 text-xl mb-10 max-w-3xl mx-auto">Our VoIP experts are ready to answer your questions and help you plan your transition.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="contact.html" class="btn-primary px-8 py-4 rounded-lg font-semibold text-lg">
+                    <i class="fas fa-headset mr-2"></i> Schedule Free Consultation
+                </a>
+                <a href="tel:+18001234567" class="btn-accent px-8 py-4 rounded-lg font-semibold text-lg">
+                    <i class="fas fa-phone-alt mr-2"></i> Call: +1 800 123 4567
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+<footer class="bg-blue-900 text-white pt-12 pb-8">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Company Info -->
+            <div>
+                <div class="flex items-center space-x-2 mb-6">
+                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                        <span class="text-blue-900 font-bold text-xl">V</span>
+                    </div>
+                    <span class="text-2xl font-bold text-white">Voiro</span>
+                </div>
+                <p class="text-blue-100 mb-6">
+                    Voiro provides enterprise-grade cloud communications solutions with unmatched reliability and 24/7 support.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                <ul class="space-y-3">
+                    <li><a href="index.html" class="text-blue-100 hover:text-white transition">Home</a></li>
+                    <li><a href="sip-trunking.html" class="text-blue-100 hover:text-white transition">SIP Trunking</a></li>
+                    <li><a href="cloud-pbx.html" class="text-blue-100 hover:text-white transition">Cloud PBX</a></li>
+                    <li><a href="dids.html" class="text-blue-100 hover:text-white transition">DID Numbers</a></li>
+                    <li><a href="pricing.html" class="text-blue-100 hover:text-white transition">Pricing</a></li>
+                </ul>
+            </div>
+
+            <!-- Product Links -->
+            <div>
+                <h3 class="text-xl font-bold mb-6">Products</h3>
+                <ul class="space-y-3">
+                    <li><a href="sip-trunking.html" class="text-blue-100 hover:text-white transition">SIP Trunking</a></li>
+                    <li><a href="cloud-pbx.html" class="text-blue-100 hover:text-white transition">Cloud PBX</a></li>
+                    <li><a href="dids.html" class="text-blue-100 hover:text-white transition">DID Numbers</a></li>
+                    <li><a href="dids.html#tfn" class="text-blue-100 hover:text-white transition">Toll-Free Numbers</a></li>
+                    <li><a href="why-voiro.html" class="text-blue-100 hover:text-white transition">Why Choose Voiro</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h3 class="text-xl font-bold mb-6">Contact Us</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt mt-1 mr-3 text-cyan-400"></i>
+                        <span class="text-blue-100">123 Business Park, Mumbai, India 400001</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-phone-alt mr-3 text-cyan-400"></i>
+                        <span class="text-blue-100">+1 800 123 4567</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-envelope mr-3 text-cyan-400"></i>
+                        <span class="text-blue-100">support@voiro.online</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-clock mr-3 text-cyan-400"></i>
+                        <span class="text-blue-100">24/7 Support Available</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Policy Links -->
+        <div class="border-t border-blue-800 mt-8 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-blue-200 text-sm">© 2024 Voiro Communications. All rights reserved.</p>
+                </div>
+                <div class="flex flex-wrap justify-center space-x-6">
+                    <a href="privacy-policy.html" class="text-blue-200 hover:text-white text-sm">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="text-blue-200 hover:text-white text-sm">Terms of Service</a>
+                    <a href="refund-policy.html" class="text-blue-200 hover:text-white text-sm">Refund Policy</a>
+                    <a href="acceptable-use-policy.html" class="text-blue-200 hover:text-white text-sm">Acceptable Use Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Modal for contact form success -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-green-600 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Message Sent!</h3>
+                <p class="text-gray-600 mb-6">Thank you for contacting us. Our team will get back to you within 24 hours.</p>
+                <button id="close-modal" class="bg-blue-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-800 transition">Close</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
